@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import './AccSidebar.css';
+import { BiArrowToRight } from "react-icons/bi";
+import { CgChevronRight } from "react-icons/cg";
 
 // Custom Sidebar Component
 export default function Sidebar({ data }) {
@@ -15,15 +17,18 @@ export default function Sidebar({ data }) {
     };
 
     return (
-        <div className="sidebar rounded-b-lg animate-slideDown">
-            <h2 className="sidebar-header">Categories</h2>
+        <div className="sidebar rounded-b-lg md:w-[80%] w-[90%] border bg-white shadow-sm">
+            {/* <h2 className="sidebar-header">Categories</h2> */}
             {data?.map((category, index) => (
                 <div key={category.id} className="accordion-item">
                     <div className="accordion-header">
                         <button
-                            className={`accordion-button ${openIndex === index ? "open" : ""}`}
+                            className={`accordion-button w-full ${openIndex === index ? "open" : ""}`}
                             onClick={() => toggleAccordion(index)}>
-                            {category.category}
+                            <div className=" flex flex-row items-center justify-between w-full leading-normal">
+                                <span className="leading-normal">{category.category}</span>
+                                <CgChevronRight size={15} />
+                            </div>
                         </button>
                     </div>
                     <div
@@ -37,9 +42,9 @@ export default function Sidebar({ data }) {
                                         {subcategory}
                                     </li>
                                 ))
-                            ) : (
-                                <li>No subcategories available</li>
-                            )}
+                            ) : 
+                            ''
+                            }
                         </ul>
                     </div>
                 </div>

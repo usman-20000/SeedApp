@@ -1,15 +1,13 @@
-
-
 .sidebar {
-  width: 80%;
-  background-color: #09288e;
-  color: white;
+  background-color: white;
+  color: black;
   padding: 20px;
-  /* height: 100vh; */
-  /* position: fixed; */
   top: 0;
   left: 0;
-  /* margin-top: 10%; */
+  transition: left 2s ease-in-out;
+  height: 400px;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 .sidebar-header {
@@ -19,7 +17,7 @@
 }
 
 .accordion-item {
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .accordion-header {
@@ -42,11 +40,11 @@
 }
 
 .accordion-button:hover {
-  background-color: #02a6ec;
+  background-color: lightgray;
 }
 
 .accordion-button.open {
-  background-color: #02a6ec;
+  background-color: lightgray;
 }
 
 .accordion-body {
@@ -60,20 +58,20 @@
 }
 
 .subcategory-item {
-  background-color: #1d77d0;
-  color: white;
+  background-color: lightgray;
+  color: black;
   padding: 8px;
   margin-bottom: 5px;
   border-radius: 5px;
 }
 
 .subcategory-item:hover {
-  background-color: #02a6ec;
+  background-color: lightgray;
 }
 
 .subcategory-item.open {
-    background-color: #02a6ec;
-  }
+  background-color: lightgray;
+}
 
 .content {
   margin-left: 250px;

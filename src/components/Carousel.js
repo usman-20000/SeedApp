@@ -3,28 +3,33 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 export default function Carousel() {
-
   const carouselStyle = {
-    height: 350
-  };
-
-  const imageStyle = {
-    height: '100%',  // Ensure the image fills the carousel height
-    width: '100%',   // Ensure the image fills the width
-    objectFit: 'fill' // Fit the image within the defined area while maintaining aspect ratio
+    height: 'auto',
   };
 
   return (
-    <div id="carouselExampleIndicators" className="carousel slide" style={{ marginTop: '1%' }} data-bs-ride="carousel" data-bs-interval="4000">
+    <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel" data-bs-interval="1000">
       <div className="carousel-inner" style={carouselStyle}>
         <div className="carousel-item active">
-          <img src={require('../../src/assets/images/image4.jpeg')} className="d-block w-100" alt="..." style={imageStyle} />
+          <img 
+            src={require('../../src/assets/images/image4.jpeg')} 
+            className="w-full h-[400px] object-cover rounded-sm" // Apply Tailwind styles directly
+            alt="..." 
+          />
         </div>
         <div className="carousel-item">
-          <img src={require('../../src/assets/images/image4.jpeg')} className="d-block w-100" alt="..." style={imageStyle}  />
+          <img 
+            src={require('../../src/assets/images/image1.jpeg')} 
+            className="w-full h-[400px] object-cover rounded-sm" // Apply Tailwind styles directly
+            alt="..." 
+          />
         </div>
         <div className="carousel-item">
-          <img src={require('../../src/assets/images/image4.jpeg')} className="d-block w-100" alt="..." style={imageStyle} />
+          <img 
+            src={require('../../src/assets/images/image2.jpeg')} 
+            className="w-full h-[400px] object-cover rounded-sm" // Apply Tailwind styles directly
+            alt="..." 
+          />
         </div>
       </div>
       {/* Carousel controls (optional) */}
