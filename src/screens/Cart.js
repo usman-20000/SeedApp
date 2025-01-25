@@ -3,12 +3,14 @@ import NavBar from "../components/NavBar";
 import { BaseUrl, colors } from "../assets/Data";
 import Alert from "../components/Alert";
 import { Link } from "react-router-dom/cjs/react-router-dom";
+import NavBar2 from "../components/NavBar2";
 
 export default function Cart() {
     const [userData, setUserData] = useState([]);
     const [localData, setLocalData] = useState([]);
     const [showAlert, setShowAlert] = useState(false);
     const [totalAmount, setTotalAmount] = useState(0);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [address, setAddress] = useState('');
     const [data, setData] = useState([]);
 
@@ -27,7 +29,7 @@ export default function Cart() {
         }
     };
 
-   
+
     const fetchLocal = () => {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         setLocalData(cart);
@@ -83,16 +85,19 @@ export default function Cart() {
 
     useEffect(() => {
         fetchData();
-        console.log('local:', localData);
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
     }, []);
 
     useEffect(() => {
         fetchLocal();
     }, [localData]);
+    const isMobile = windowWidth <= 768;
 
     return (
         <div>
-            <NavBar />
+            <NavBar2 cart={true} search={true} showRight={!isMobile} />
             <div style={{ paddingTop: '10%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 {showAlert && <Alert message="Deleted Successfully..." />}
                 <div style={{ display: 'flex', alignItems: 'center', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '70%', backgroundColor: colors.blueGrey, height: 40, marginLeft: '5%', paddingLeft: '1%', paddingRight: '1%', borderRadius: 3 }}>
@@ -107,9 +112,9 @@ export default function Cart() {
                     return (
                         <div key={item.id} style={{ padding: '2%', display: 'flex', alignItems: 'center', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '70%', borderBottom: '1px solid lightgray', marginLeft: '5%' }}>
                             <div onClick={() => removeFromCart(index)}>
-                                <img src={require('../../src/assets/images/recycle-bin.png')} style={{ height: 20, width: 20 }} />
+                                <img src={require('../../src/assets/images/recycle-bin.png')} style={{ height: 14, width: 14 }} />
                             </div>
-                            <img src={item.image} alt={item.title} style={{ height: 120, width: 120, marginRight: '2%', alignSelf: 'center' }} />
+                            <img src={item.image} alt={item.title} className="hidden md:block h-20 w-20 mr-2 self-center" />
                             <span style={{ marginRight: '2%', alignSelf: 'center' }}>{item.heading}</span>
                             {localItem && <span style={{ alignSelf: 'center' }}>{localItem.quantity}</span>}
                             <span style={{ alignSelf: 'center' }}>{item.price * localItem.quantity}</span>

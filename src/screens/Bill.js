@@ -11,7 +11,7 @@ export default function Bill() {
     const [totalAmount, setTotalAmount] = useState(0);
     const [cartData, setCartData] = useState([]);
     const [data, setData] = useState([]);
-    
+
     const [email, setEmail] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -64,7 +64,7 @@ export default function Bill() {
             city: city,
             postalCode: postalCode,
             phone: phone,
-            status:'pending',
+            status: 'pending',
             cart: cartData,
         };
 
@@ -119,8 +119,8 @@ export default function Bill() {
     return (
         <div>
             <NavBar />
-            <div style={{ width: '100%', display: 'flex', flexDirection: 'row' }}>
-                <div style={{ marginTop: '5%', alignItems: 'center', display: 'flex', flexDirection: 'column', width: '50%' }}>
+            <div className="flex flex-col md:flex-row items-center">
+                <div className="flex flex-col items-center items-center w-full md:w-[50%] mt-4">
                     <h3>Information</h3>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '80%' }}>
                         <Input text="Email" placeholder="Example@gmail.com" value={email} onChange={e => setEmail(e.target.value)} />
@@ -148,20 +148,21 @@ export default function Bill() {
                         Buy Now
                     </button>
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', width: '50%', marginTop: '5%', alignItems: 'center', borderLeft: '1px solid lightgrey' }}>
+                <div className="flex flex-col items-center md:w-[50%] w-full mt-4 md:border-l">
                     <h3>Bill</h3>
                     {userData.map((item, index) => {
                         const localItem = localData.find(e => e.id === item._id);
+                        console.log('item:', localItem);
                         return (
-                            <div key={item._id} style={{ padding: '2%', display: 'flex', alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '70%', borderBottom: '1px solid lightgray', marginLeft: '5%' }}>
-                                <img src={item.image} alt={item.title} style={{ height: 120, width: 120, marginRight: '2%', alignSelf: 'center' }} />
-                                <span style={{ marginRight: '2%', alignSelf: 'center' }}>{item.title}</span>
+                            <div key={item._id} className="md:w-[80%] w-[90%] flex flex-row items-center justify-between">
+                                <img src={item.image} alt={item.title} className="h-20 w-20 rounded-md" />
+                                <span style={{ marginRight: '2%', alignSelf: 'center' }} className="w-[30%]">{item.heading}</span>
                                 {localItem && <span style={{ alignSelf: 'center' }}>{localItem.quantity}</span>}
                                 <span style={{ alignSelf: 'center' }}>{item.price * localItem.quantity}</span>
                             </div>
                         );
                     })}
-                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '65%', paddingLeft: '5%', paddingTop: '2%' }}>
+                    <div className="border-t mt-4 border-black md:w-[80%] w-[90%] p-2 flex flex-row items-center justify-between">
                         <h5>Total:</h5>
                         <h5>{totalAmount}/-</h5>
                     </div>
