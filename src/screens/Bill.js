@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar";
 import Input from "../components/Input";
 import { Link, useHistory } from "react-router-dom";
 import { BaseUrl, colors } from "../assets/Data";
+import NavBar2 from "../components/NavBar2";
 
 export default function Bill() {
     const history = useHistory();
@@ -56,6 +57,10 @@ export default function Bill() {
     };
 
     const handleSubmit = async () => {
+        if (!email || !firstName || !address || !phone) {
+            alert('all fields are mandatory...');
+            return;
+        }
         const formData = {
             email: email,
             name: `${firstName} ${lastName}`,
@@ -118,7 +123,7 @@ export default function Bill() {
 
     return (
         <div>
-            <NavBar />
+            <NavBar2 />
             <div className="flex flex-col md:flex-row items-center">
                 <div className="flex flex-col items-center items-center w-full md:w-[50%] mt-4">
                     <h3>Information</h3>
@@ -144,7 +149,7 @@ export default function Bill() {
                         </div>
                         <Input text="Phone" placeholder="Phone" value={phone} onChange={e => setPhone(e.target.value)} />
                     </div>
-                    <button onClick={handleSubmit} style={{ marginBottom: '5%', height: 50, borderWidth: 0, backgroundColor: colors.blue, color: 'white', width: '25%', alignSelf: 'center', fontWeight: 'bold', border: '1px solid' }}>
+                    <button onClick={handleSubmit} style={{ marginBottom: '5%', height: 50, borderWidth: 0, backgroundColor: '#347928', color: 'white', width: '25%', alignSelf: 'center', fontWeight: 'bold', border: '1px solid' }}>
                         Buy Now
                     </button>
                 </div>

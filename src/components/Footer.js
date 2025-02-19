@@ -7,7 +7,7 @@ import { BsTelephone } from "react-icons/bs";
 
 export default function Footer() {
     return (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full bg-[#00308F] py-8 px-4 items-start">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full bg-[#347928] py-8 px-4 items-start">
             <div className="flex flex-col items-start">
                 <div className="flex flex-row items-center">
                     <FaLocationDot size={12} color="white" />

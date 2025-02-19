@@ -65,11 +65,11 @@ export default function Home() {
         <div className="flex flex-row items-center w-full justify-center">
           <div className="md:w-[40%] w-[60%] flex flex-row items-center border rounded-lg h-[40px]">
             <input className="w-[90%] border-none outline-none h-[35px] pl-4 rounded-l-lg" type="search" onChange={handleText} placeholder="Search" aria-label="Search" />
-            <div className="w-[10%] items-center flex flex-col bg-[#09288e] h-full justify-center rounded-r-lg">
+            <div className="w-[10%] items-center flex flex-col bg-[#347928] h-full justify-center rounded-r-lg">
               <BsSearch size={15} className="text-white" />
             </div>
           </div>
-          <div className="h-[40px] w-[40px] bg-[#09288e] flex flex-col items-center justify-center rounded-lg ml-8 my-2">
+          <div className="h-[40px] w-[40px] bg-[#347928] flex flex-col items-center justify-center rounded-lg ml-8 my-2">
             <Link to="/Cart">
               <BsCartDash size={22} className="text-white" />
             </Link>
@@ -78,8 +78,8 @@ export default function Home() {
         {/* Main Container */}
         <div className="flex flex-col md:flex-row w-full md:justify-center ">
           {/* Sidebar */}
-          <div className={`flex flex-col w-full md:w-[30%] items-center ${isMobile ? "p-0" : "px-2 py-6"}`}>
-            <div className="p-2 bg-[#09288e] w-[90%] md:w-[80%] rounded-t-lg flex items-center shadow-sm">
+          <div className={`flex flex-col w-full md:w-[30%] items-center ${isMobile ? "p-0" : "px-2 py-6"}  md:h-[490px]`}>
+            <div className="p-2 bg-[#347928] w-[90%] md:w-[80%] rounded-t-lg flex items-center shadow-sm">
               <button
                 style={{ background: "none", border: "none", cursor: "pointer" }}
                 onClick={() => setOpenCat(!openCat)}>
@@ -109,7 +109,7 @@ export default function Home() {
                 </span>
               </div>
               <div className="flex flex-row items-center">
-                <BsWhatsapp size={30} className="text-green-500 mr-2" />
+                <BsWhatsapp size={30} className="text-[#347928] mr-2" />
                 <div className="flex flex-col items-center justify-center">
                   <span className="text-[16px] text-black leading-normal">+92 3489598799</span>
                   <span className="text-[14px] text-black leading-normal">Customer Support</span>
@@ -118,7 +118,6 @@ export default function Home() {
             </div>
             {/* Carousel */}
             <Carousel />
-
             {/* Modal */}
             {showOffcanvas && (
               <Modal
@@ -129,28 +128,14 @@ export default function Home() {
           </div>
         </div>
         <div className="w-[95%] flex flex-col md:flex-row items-center justify-between mb-4 mx-auto">
-          <img src={require("../../src/assets/images/image1.jpeg")} className="h-[170px] md:w-[49%] w-full mt-4 md:mt-0 rounded-sm object-cover animate-slideFromLeft" />
-          <img src={require("../../src/assets/images/image2.jpeg")} className="h-[170px] md:w-[49%] w-full mt-4 md:mt-0 rounded-sm object-cover animate-slideFromRight" />
+          <img src={require("../../src/assets/images/image1.jpeg")} className="h-[170px] md:w-[49%] w-full mt-4 md:mt-0 rounded-md object-cover animate-slideFromLeft" />
+          <img src={require("../../src/assets/images/image2.jpeg")} className="h-[170px] md:w-[49%] w-full mt-4 md:mt-0 rounded-md object-cover animate-slideFromRight" />
         </div>
         {/* Footer */}
       </div>
-      <h2 className="w-[85%] pb-2">Categories</h2>
-      <div className="grid grid-cols-3 md:grid-cols-5 gap-2 mt-0 w-[85%] bg-gray-100 mb-4 p-2">
-        {categoryData.map((item, index) => (
-          <CatCard
-            key={index}
-            image={item.image}
-            title={item.category}
-          />
-        ))}
-      </div>
-        <div className="w-[85%] flex flex-col md:flex-row items-center justify-between mb-4 mx-auto">
-          <img src={require("../../src/assets/images/image1.jpeg")} className="h-[170px] md:w-[49%] w-full mt-4 md:mt-0 rounded-sm object-cover animate-slideFromLeft" />
-          <img src={require("../../src/assets/images/image2.jpeg")} className="h-[170px] md:w-[49%] w-full mt-4 md:mt-0 rounded-sm object-cover animate-slideFromRight" />
-        </div>
       <h2 className="w-[85%] pb-2">Products</h2>
       {/* Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-0 w-[85%] mb-4 bg-blue-100 p-2">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-0 w-[85%] mb-4 bg-[#C0EBA6] p-2">
         {filterData.map((item, index) => (
           <Card
             key={index}
@@ -159,6 +144,20 @@ export default function Home() {
             detail={item.detail}
             price={item.price}
             onClick={() => toggleOffcanvas(item._id)}
+          />
+        ))}
+      </div>
+      <div className="w-[85%] flex flex-col md:flex-row items-center justify-between mb-4 mx-auto">
+        <img src={require("../../src/assets/images/image1.jpeg")} className="h-[170px] md:w-[49%] w-full mt-4 md:mt-0 rounded-md object-cover animate-slideFromLeft" />
+        <img src={require("../../src/assets/images/image2.jpeg")} className="h-[170px] md:w-[49%] w-full mt-4 md:mt-0 rounded-md object-cover animate-slideFromRight" />
+      </div>
+      <h2 className="w-[85%] pb-2">Categories</h2>
+      <div className="grid grid-cols-3 md:grid-cols-5 gap-2 mt-0 w-[85%] bg-[#FFFBE6] mb-4 p-2">
+        {categoryData.map((item, index) => (
+          <CatCard
+            key={index}
+            image={item.image}
+            title={item.category}
           />
         ))}
       </div>

@@ -9,25 +9,25 @@ export default function Carousel() {
 
   return (
     <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel" data-bs-interval="1000">
-      <div className="carousel-inner" style={carouselStyle}>
+      <div className="carousel-inner md:h-[390px] h-[200px] rounded-md" >
         <div className="carousel-item active">
           <img 
             src={require('../../src/assets/images/image4.jpeg')} 
-            className="w-full h-[400px] object-cover rounded-sm" // Apply Tailwind styles directly
+            className="w-full h-[400px] object-cover rounded-md" // Apply Tailwind styles directly
             alt="..." 
           />
         </div>
         <div className="carousel-item">
           <img 
             src={require('../../src/assets/images/image1.jpeg')} 
-            className="w-full h-[400px] object-cover rounded-sm" // Apply Tailwind styles directly
+            className="w-full h-[400px] object-cover rounded-md" // Apply Tailwind styles directly
             alt="..." 
           />
         </div>
         <div className="carousel-item">
           <img 
             src={require('../../src/assets/images/image2.jpeg')} 
-            className="w-full h-[400px] object-cover rounded-sm" // Apply Tailwind styles directly
+            className="w-full h-[400px] object-cover rounded-md" // Apply Tailwind styles directly
             alt="..." 
           />
         </div>

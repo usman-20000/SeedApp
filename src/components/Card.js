@@ -8,7 +8,7 @@ export default function Card(props) {
 
   return (
     <div>
-      <div class="card" className="w-full rounded-md border flex flex-col items-center bg-white p-2">
+      <div class="card" className="w-full rounded-md border flex flex-col items-center bg-[#FFFBE6] p-2">
         <img src={props.image} class="card-img-top" alt="..." className="w-[95%] h-[120px] self-center mt-[2%] rounded-sm" />
         <div class="card-body" className="w-full items-center flex flex-col">
           <span className="w-full line-clamp-1 font-semibold ">{props.title}</span>
@@ -19,7 +19,7 @@ export default function Card(props) {
             <li className="w-full font-semibold"><span>Price: {props.price}/Rs</span></li>
           </ul>
         </div>
-        <button onClick={props.onClick} className="px-2 py-2 bg-[#00308F] text-white self-end">
+        <button onClick={props.onClick} className="px-1 py-1 bg-[#347928] text-white self-end rounded-sm">
           <BsCartDash size={22} className="text-white" />
         </button>
       </div>

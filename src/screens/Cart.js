@@ -100,7 +100,7 @@ export default function Cart() {
             <NavBar2 cart={true} search={true} showRight={!isMobile} />
             <div style={{ paddingTop: '10%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 {showAlert && <Alert message="Deleted Successfully..." />}
-                <div style={{ display: 'flex', alignItems: 'center', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '70%', backgroundColor: colors.blueGrey, height: 40, marginLeft: '5%', paddingLeft: '1%', paddingRight: '1%', borderRadius: 3 }}>
+                <div style={{ display: 'flex', alignItems: 'center', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '70%', backgroundColor: '#347928', height: 40, marginLeft: '5%', paddingLeft: '1%', paddingRight: '1%', borderRadius: 3 }}>
                     <h5 style={{ alignSelf: 'center', color: colors.white }}>Delete</h5>
                     <h5 style={{ alignSelf: 'center', color: colors.white }}>Image</h5>
                     <h5 style={{ alignSelf: 'center', color: colors.white }}>name</h5>
@@ -126,7 +126,7 @@ export default function Cart() {
                     <h5>{totalAmount}/-</h5>
                 </div>
                 <Link to="/Bill" style={{ width: '15%', margin: '5%', marginLeft: '10%' }}>
-                    <button style={{ marginBottom: '5%', height: 50, borderWidth: 0, backgroundColor: colors.blue, color: 'white', width: '100%', alignSelf: 'center', fontWeight: 'bold', border: '1px solid' }}>Check Out</button>
+                    <button style={{ marginBottom: '5%', height: 50, borderWidth: 0, backgroundColor: '#347928', color: 'white', width: '100%', alignSelf: 'center', fontWeight: 'bold', border: '1px solid' }}>Check Out</button>
                 </Link>
             </div>
         </div>

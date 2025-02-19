@@ -19,19 +19,19 @@ export default function NavBar2(props) {
                 <div className="d-flex align-items-center">
                     <FaFacebook
                         size={16}
-                        className="text-gray-500 mx-2 hover:text-primary"
+                        className="text-black-500 mx-2 hover:text-primary"
                     />
                     <BsInstagram
                         size={16}
-                        className="text-gray-500 mx-2 hover:text-primary"
+                        className="text-black-500 mx-2 hover:text-primary"
                     />
                     <BsTwitter
                         size={16}
-                        className="text-gray-500 mx-2 hover:text-primary"
+                        className="text-black-500 mx-2 hover:text-primary"
                     />
                     <BsYoutube
                         size={16}
-                        className="text-gray-500 mx-2 hover:text-primary"
+                        className="text-black-500 mx-2 hover:text-primary"
                     />
                 </div>
                 {/* Collapsible Content */}

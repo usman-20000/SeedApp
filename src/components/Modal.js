@@ -70,20 +70,20 @@ export default function Modal(props) {
             <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: '2%' }}>
               <h5>Price: {itemData?.price}/Rs</h5>
               <div style={{ width: 60, display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginRight: 20 }}>
-                <div onClick={decrement}>
-                  <img src={require('../../src/assets/images/remove.png')} style={{ height: 20, width: 20 }} alt="Decrement" />
+                <div onClick={decrement} className="h-[20px] w-[20px] rounded-full bg-[#347928] flex flex-col items-center justify-center pb-1">
+                  <span className="text-white text-[20px]">-</span>
                 </div>
                 <span>{qty}</span>
-                <div onClick={increment}>
-                  <img src={require('../../src/assets/images/plus.png')} style={{ height: 20, width: 20 }} alt="Increment" />
+                <div onClick={increment} className="h-[20px] w-[20px] rounded-full bg-[#347928] flex flex-col items-center justify-center pb-1">
+                  <span className="text-white text-[20px]">+</span>
                 </div>
               </div>
             </div>
           </div>
           <div style={{ display: 'flex', flexDirection: 'row', width: '90%', justifyContent: 'space-between', alignItems: 'center', marginLeft: '5%' }}>
-            <button onClick={() => addToCart(qty)} style={{ marginBottom: '5%', height: 50, borderWidth: 0, backgroundColor: colors.blue, color: 'white', width: '45%', alignSelf: 'center', fontWeight: 'bold' }}>Add to Cart</button>
+            <button onClick={() => addToCart(qty)} style={{ marginBottom: '5%', height: 50, borderWidth: 0, backgroundColor: '#347928', color: 'white', width: '45%', alignSelf: 'center', fontWeight: 'bold' }}>Add to Cart</button>
             <Link to="/Cart" style={{ width: '45%' }}>
-              <button style={{ marginBottom: '5%', height: 50, borderWidth: 0, color: colors.blue, backgroundColor: 'white', width: '100%', alignSelf: 'center', fontWeight: 'bold', border: '1px solid' }}>Go to Cart</button>
+              <button style={{ marginBottom: '5%', height: 50, borderWidth: 0, color: '#347928', backgroundColor: 'white', width: '100%', alignSelf: 'center', fontWeight: 'bold', border: '1px solid' }}>Go to Cart</button>
             </Link>
           </div>
         </div>
