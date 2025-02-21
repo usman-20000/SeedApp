@@ -11,22 +11,28 @@ import AccSidebar from "../components/AccSidebar";
 import { MdMenu } from "react-icons/md";
 import NavBar2 from "../components/NavBar2";
 import { BsCartDash, BsSearch, BsWhatsapp } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CatCard from "../components/CatCard";
 
 export default function Home() {
+
+  const navigate = useNavigate();
+
   const [showOffcanvas, setShowOffcanvas] = useState(false);
   const [id, setId] = useState();
   const [data, setData] = useState([]);
-  const [filterData, setFilterData] = useState(data);
+  const [allData, setAllData] = useState([]);
+  const [filterData, setFilterData] = useState([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [openCat, setOpenCat] = useState(true);
 
   const fetchData = async () => {
     const response = await fetch(`${BaseUrl}/add`);
     const json = await response.json();
-    setData(json);
-    setFilterData(json);
+    const json5 = await json.slice(0, 5);
+    setData(json5);
+    setAllData(json);
+    // setFilterData(json);
   };
 
   useEffect(() => {
@@ -37,7 +43,7 @@ export default function Home() {
   }, []);
 
   const fetchFilter = (txt) => {
-    const data1 = data.filter((item) =>
+    const data1 = allData.filter((item) =>
       item?.heading?.toLowerCase()?.includes(txt?.toLowerCase())
     );
     setFilterData(data1);
@@ -51,7 +57,7 @@ export default function Home() {
   const handleText = (event) => {
     fetchFilter(event.target.value);
     if (event.target.value === "") {
-      setFilterData(data);
+      setFilterData([]);
     }
   };
 
@@ -63,10 +69,17 @@ export default function Home() {
         {/* Navbar */}
         <NavBar2 cart={true} search={true} showRight={!isMobile} />
         <div className="flex flex-row items-center w-full justify-center">
-          <div className="md:w-[40%] w-[60%] flex flex-row items-center border rounded-lg h-[40px]">
-            <input className="w-[90%] border-none outline-none h-[35px] pl-4 rounded-l-lg" type="search" onChange={handleText} placeholder="Search" aria-label="Search" />
-            <div className="w-[10%] items-center flex flex-col bg-[#347928] h-full justify-center rounded-r-lg">
-              <BsSearch size={15} className="text-white" />
+          <div className="flex flex-col items-center md:w-[40%] w-[60%] justify-center">
+            <div className="w-full flex flex-row items-center border rounded-lg h-[40px]">
+              <input className="w-[90%] border-none outline-none h-[35px] pl-4 rounded-l-lg" type="search" onChange={handleText} placeholder="Search" aria-label="Search" />
+              <div className="w-[10%] items-center flex flex-col bg-[#347928] h-full justify-center rounded-r-lg">
+                <BsSearch size={15} className="text-white" />
+              </div>
+            </div>
+            <div className="md:w-[40%] w-[60%] bg-white shadow-md z-50 absolute rounded-lg h-auto top-[18%]">
+              {filterData.map((item) => (<div onClick={() => { toggleOffcanvas(item._id) }} className="w-full p-2 hover:bg-[#C0EBA6] rounded-lg">
+                <span className="w-full">{item.heading}</span>
+              </div>))}
             </div>
           </div>
           <div className="h-[40px] w-[40px] bg-[#347928] flex flex-col items-center justify-center rounded-lg ml-8 my-2">
@@ -135,17 +148,22 @@ export default function Home() {
       </div>
       <h2 className="w-[85%] pb-2">Products</h2>
       {/* Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-0 w-[85%] mb-4 bg-[#C0EBA6] p-2">
-        {filterData.map((item, index) => (
-          <Card
-            key={index}
-            image={item.image}
-            title={item.heading}
-            detail={item.detail}
-            price={item.price}
-            onClick={() => toggleOffcanvas(item._id)}
-          />
-        ))}
+      <div className="flex flex-col gap-4 mt-0 w-[85%] mb-4 bg-[#C0EBA6] p-2 rounded-md">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-0 w-full ">
+          {data.map((item, index) => (
+            <Card
+              key={index}
+              image={item.image}
+              title={item.heading}
+              detail={item.detail}
+              price={item.price}
+              onClick={() => toggleOffcanvas(item._id)}
+            />
+          ))}
+        </div>
+        <div onClick={() => { if (categoryData?.length > 0) { navigate(`Products/${categoryData[0].category}`) } }} className="self-end mr-4">
+          <h5 className="text-[#347928]">Show More {'>>'}</h5>
+        </div>
       </div>
       <div className="w-[85%] flex flex-col md:flex-row items-center justify-between mb-4 mx-auto">
         <img src={require("../../src/assets/images/image1.jpeg")} className="h-[170px] md:w-[49%] w-full mt-4 md:mt-0 rounded-md object-cover animate-slideFromLeft" />
