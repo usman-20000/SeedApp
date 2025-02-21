@@ -43,13 +43,13 @@ const categoryData = [
         id: 1,
         image: require('../assets/images/image1.jpeg'),
         category: "Fertilizer",
-        subCategories: ["DAP", "Urea"]
+        // subCategories: ["DAP", "Urea"]
     },
     {
         id: 2,
         image: require('../assets/images/image2.jpeg'),
         category: "Pesticides",
-        subCategories: ["Fungicides", "Insecticides"]
+        // subCategories: ["Fungicides", "Insecticides"]
     },
     {
         id: 3,

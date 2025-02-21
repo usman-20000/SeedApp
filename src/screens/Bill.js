@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import Input from "../components/Input";
-import { Link, useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BaseUrl, colors } from "../assets/Data";
 import NavBar2 from "../components/NavBar2";
 
 export default function Bill() {
-    const history = useHistory();
+    const navigate = useNavigate();
     const [localData, setLocalData] = useState([]);
     const [userData, setUserData] = useState([]);
     const [totalAmount, setTotalAmount] = useState(0);
@@ -92,7 +92,7 @@ export default function Bill() {
             setCity('');
             setPhone('');
             setCartData([]);
-            history.push('/');
+            navigate('/');
             const result = await response.json();
             console.log('Form submitted successfully:', result);
         } catch (error) {
@@ -124,6 +124,7 @@ export default function Bill() {
     return (
         <div>
             <NavBar2 />
+            <img src={require('../../src/assets/images/image4.jpeg')} className="h-[250px] w-full rounded-md"/>
             <div className="flex flex-col md:flex-row items-center">
                 <div className="flex flex-col items-center items-center w-full md:w-[50%] mt-4">
                     <h3>Information</h3>

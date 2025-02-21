@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../components/Input";
 import { BaseUrl, colors } from "../assets/Data";
 
@@ -7,7 +7,7 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [data, setData] = useState([]);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const fetchData = async () => {
     try {
@@ -32,7 +32,7 @@ export default function Login() {
       const checkId = data.find((item) => item.email === email && item.password === password);
       if (checkId) {
         alert('Login successful!');
-        history.push('/');
+        navigate('/');
       } else {
         alert('Login failed. Please check your email and password.');
       }

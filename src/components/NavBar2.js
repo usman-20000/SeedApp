@@ -40,15 +40,15 @@ export default function NavBar2(props) {
                     <span className="text-[14px] text-red-500 font-bold px-3 border-end hover:text-primary">
                         All Product
                     </span>
-                    <span className="text-[14px] text-black px-3 border-end hover:text-primary">
+                    <span className="text-[14px] text-black px-3 hover:text-primary">
                         Contact Us
                     </span>
-                    <span className="text-[14px] text-black px-3 border-end hover:text-primary">
+                    {/* <span className="text-[14px] text-black px-3 border-end hover:text-primary">
                         Signup
-                    </span>
-                    <span className="text-[14px] text-black px-3 hover:text-primary">
+                    </span> */}
+                    {/* <span className="text-[14px] text-black px-3 hover:text-primary">
                         Login
-                    </span>
+                    </span> */}
                 </div>)}
                 <button onClick={() => setShowCollapse(!showCollapse)} className="border-2 rounded-md px-2 py-1 flex flex-col items-center justify-center d-md-none">
                     <span class="navbar-toggler-icon"></span>

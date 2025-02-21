@@ -27,7 +27,7 @@
 }
 
 .accordion-button {
-  background-color: #34495e;
+  background-color: #FCCD2A;
   color: rgb(21, 18, 18);
   border: none;
   padding: 10px;
@@ -40,11 +40,11 @@
 }
 
 .accordion-button:hover {
-  background-color: lightgray;
+  background-color: #C0EBA6;
 }
 
 .accordion-button.open {
-  background-color: lightgray;
+  background-color: #C0EBA6;
 }
 
 .accordion-body {
@@ -66,7 +66,7 @@
 }
 
 .subcategory-item:hover {
-  background-color: lightgray;
+  background-color: #FCCD2A;
 }
 
 .subcategory-item.open {

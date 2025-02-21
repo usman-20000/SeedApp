@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import { BaseUrl, colors } from "../assets/Data";
 import Alert from "../components/Alert";
-import { Link } from "react-router-dom/cjs/react-router-dom";
+import { Link } from "react-router-dom";
 import NavBar2 from "../components/NavBar2";
 
 export default function Cart() {
@@ -98,11 +98,12 @@ export default function Cart() {
     return (
         <div>
             <NavBar2 cart={true} search={true} showRight={!isMobile} />
-            <div style={{ paddingTop: '10%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <img src={require('../../src/assets/images/image4.jpeg')} className="h-[250px] w-full rounded-md"/>
+            <div style={{ paddingTop: '5%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 {showAlert && <Alert message="Deleted Successfully..." />}
                 <div style={{ display: 'flex', alignItems: 'center', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '70%', backgroundColor: '#347928', height: 40, marginLeft: '5%', paddingLeft: '1%', paddingRight: '1%', borderRadius: 3 }}>
                     <h5 style={{ alignSelf: 'center', color: colors.white }}>Delete</h5>
-                    <h5 style={{ alignSelf: 'center', color: colors.white }}>Image</h5>
+                    {isMobile?<></>:<h5 style={{ alignSelf: 'center', color: colors.white }}>Image</h5>}
                     <h5 style={{ alignSelf: 'center', color: colors.white }}>name</h5>
                     <h5 style={{ alignSelf: 'center', color: colors.white }}>quantity</h5>
                     <h5 style={{ alignSelf: 'center', color: colors.white }}>price</h5>

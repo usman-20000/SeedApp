@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../components/Input";
 import { BaseUrl, colors } from "../assets/Data";
 
@@ -7,7 +7,7 @@ export default function SignUp() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ export default function SignUp() {
       if (response.ok) {
         console.log('Registration successful:', result);
         // Redirect to the login page or handle success as needed
-        history.push('/login');
+        navigate('/login');
         alert('Registered Successfully...');
       } else {
         console.error('Registration failed:', result);
