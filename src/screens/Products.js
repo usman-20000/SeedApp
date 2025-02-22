@@ -13,6 +13,8 @@ import NavBar2 from "../components/NavBar2";
 import { BsCartDash, BsSearch, BsWhatsapp } from "react-icons/bs";
 import { Link, useParams } from "react-router-dom";
 import CatCard from "../components/CatCard";
+import { Dots } from "react-activity";
+import "react-activity/dist/Dots.css";
 
 export default function Products() {
 
@@ -24,14 +26,22 @@ export default function Products() {
     const [filterData, setFilterData] = useState(data);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [openCat, setOpenCat] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const fetchData = async () => {
-        const response = await fetch(`${BaseUrl}/add`);
-        const json = await response.json();
-        console.log('filter:', category);
-        const selectedCat = await json.filter((item) => item.category?.toLowerCase() === category?.toLowerCase());
-        setData(selectedCat);
-        setFilterData(selectedCat);
+        try {
+            setLoading(true);
+            const response = await fetch(`${BaseUrl}/add`);
+            const json = await response.json();
+            console.log('filter:', category);
+            const selectedCat = await json.filter((item) => item.category?.toLowerCase() === category?.toLowerCase());
+            setData(selectedCat);
+            setFilterData(selectedCat);
+        } catch (e) {
+            console.log('error fetching data', e);
+        } finally {
+            setLoading(false);
+        }
     };
 
     useEffect(() => {
@@ -41,9 +51,9 @@ export default function Products() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchData();
-    },[category]);
+    }, [category]);
 
     const fetchFilter = (txt) => {
         const data1 = data.filter((item) =>
@@ -130,7 +140,7 @@ export default function Products() {
                         {/* <Carousel /> */}
                         <h4 className="w-full p-2 bg-[#347928] text-white rounded-t-md">{category}</h4>
                         {/* Cards */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-0 w-full mb-4 bg-[#C0EBA6] p-2">
+                        {loading ? <Dots className="self-center text-[#347928] mt-[10%]"/> : <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-0 w-full mb-4 bg-[#C0EBA6] p-2">
                             {filterData.map((item, index) => (
                                 <Card
                                     key={index}
@@ -141,7 +151,7 @@ export default function Products() {
                                     onClick={() => toggleOffcanvas(item._id)}
                                 />
                             ))}
-                        </div>
+                        </div>}
                         {/* Modal */}
                         {showOffcanvas && (
                             <Modal

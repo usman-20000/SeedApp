@@ -16,6 +16,8 @@ import CatCard from "../components/CatCard";
 
 export default function Home() {
 
+  const screenWidth = window.innerWidth;
+
   const navigate = useNavigate();
 
   const [showOffcanvas, setShowOffcanvas] = useState(false);
@@ -69,14 +71,14 @@ export default function Home() {
         {/* Navbar */}
         <NavBar2 cart={true} search={true} showRight={!isMobile} />
         <div className="flex flex-row items-center w-full justify-center">
-          <div className="flex flex-col items-center md:w-[40%] w-[60%] justify-center">
+          <div className={`flex flex-col items-center justify-center`} style={{ width: screenWidth * 0.40 }}>
             <div className="w-full flex flex-row items-center border rounded-lg h-[40px]">
               <input className="w-[90%] border-none outline-none h-[35px] pl-4 rounded-l-lg" type="search" onChange={handleText} placeholder="Search" aria-label="Search" />
               <div className="w-[10%] items-center flex flex-col bg-[#347928] h-full justify-center rounded-r-lg">
                 <BsSearch size={15} className="text-white" />
               </div>
             </div>
-            <div className="md:w-[40%] w-[60%] bg-white shadow-md z-50 absolute rounded-lg h-auto top-[18%]">
+            <div className={`bg-white shadow-md z-50 absolute rounded-lg h-auto top-[18%]`} style={{ width: screenWidth * 0.40 }}>
               {filterData.map((item) => (<div onClick={() => { toggleOffcanvas(item._id) }} className="w-full p-2 hover:bg-[#C0EBA6] rounded-lg">
                 <span className="w-full">{item.heading}</span>
               </div>))}
@@ -176,6 +178,8 @@ export default function Home() {
             key={index}
             image={item.image}
             title={item.category}
+            images={item.images}
+            onClick={() => { navigate(`Products/${item.category}`) }}
           />
         ))}
       </div>

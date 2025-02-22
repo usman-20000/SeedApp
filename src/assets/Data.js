@@ -43,55 +43,106 @@ const categoryData = [
         id: 1,
         image: require('../assets/images/image1.jpeg'),
         category: "Fertilizer",
+        images: [
+            require('../assets/images/image4.jpeg'),
+            require('../assets/images/image3.jpeg'),
+            require('../assets/images/image2.jpeg'),
+        ]
         // subCategories: ["DAP", "Urea"]
     },
     {
         id: 2,
         image: require('../assets/images/image2.jpeg'),
         category: "Pesticides",
+        images: [
+            require('../assets/images/image3.jpeg'),
+            require('../assets/images/image2.jpeg'),
+            require('../assets/images/image1.jpeg'),
+        ]
         // subCategories: ["Fungicides", "Insecticides"]
     },
     {
         id: 3,
         image: require('../assets/images/image3.jpeg'),
         category: "Seeds",
+        images: [
+            require('../assets/images/image2.jpeg'),
+            require('../assets/images/image3.jpeg'),
+            require('../assets/images/image4.jpeg'),
+        ]
     },
     {
         id: 4,
         image: require('../assets/images/image4.jpeg'),
         category: "Hybrid Seeds",
+        images: [
+            require('../assets/images/image3.jpeg'),
+            require('../assets/images/image4.jpeg'),
+            require('../assets/images/image2.jpeg'),
+        ]
     },
     {
         id: 5,
         image: require('../assets/images/image1.jpeg'),
         category: "Spray Machines",
+        images: [
+            require('../assets/images/image2.jpeg'),
+            require('../assets/images/image4.jpeg'),
+            require('../assets/images/image3.jpeg'),
+        ]
     },
     {
         id: 6,
         image: require('../assets/images/image2.jpeg'),
         category: "Agriculture tools",
+        images: [
+            require('../assets/images/image1.jpeg'),
+            require('../assets/images/image2.jpeg'),
+            require('../assets/images/image3.jpeg'),
+        ]
     },
     {
         id: 7,
         image: require('../assets/images/image3.jpeg'),
         category: "Livestock",
+        images: [
+            require('../assets/images/image4.jpeg'),
+            require('../assets/images/image2.jpeg'),
+            require('../assets/images/image1.jpeg'),
+        ]
     },
     {
         id: 8,
         image: require('../assets/images/image4.jpeg'),
         category: "Farming",
+        images: [
+            require('../assets/images/image3.jpeg'),
+            require('../assets/images/image2.jpeg'),
+            require('../assets/images/image1.jpeg'),
+        ]
     },
     {
         id: 9,
         image: require('../assets/images/image3.jpeg'),
         category: "Livestock",
+        images: [
+            require('../assets/images/image2.jpeg'),
+            require('../assets/images/image1.jpeg'),
+            require('../assets/images/image3.jpeg'),
+        ]
     },
     {
         id: 10,
         image: require('../assets/images/image4.jpeg'),
         category: "Farming",
+        images: [
+            require('../assets/images/image3.jpeg'),
+            require('../assets/images/image1.jpeg'),
+            require('../assets/images/image4.jpeg'),
+        ]
     }
 ]
+
 
 const colors = {
     blue: '#00308F',

@@ -7,6 +7,7 @@ import { FaFacebook } from "react-icons/fa";
 import { BsInstagram, BsTwitter, BsYoutube } from "react-icons/bs";
 
 export default function NavBar2(props) {
+    
     const [showCart, setShowCart] = useState(props.cart);
     const [showSearch, setShowSearch] = useState(props.search);
     const [showCollapse, setShowCollapse] = useState(false);
